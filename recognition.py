@@ -47,7 +47,6 @@ def click_and_select_corners(event, x, y, flags, param):
     elif event == cv2.EVENT_LBUTTONUP:
         cropping = False
         cv2.circle(image, refPt[-1], 5, (0, 255, 0), -1)
-        cv2.putText(image, 'Click on the corners', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 1)
         cv2.imshow("image", image)
         if len(refPt) == 4:
             cv2.putText(image, 'Press "P" to process in the next steps', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 1)
