@@ -47,9 +47,10 @@ def click_and_select_corners(event, x, y, flags, param):
     elif event == cv2.EVENT_LBUTTONUP:
         cropping = False
         cv2.circle(image, refPt[-1], 5, (0, 255, 0), -1)
+        cv2.putText(image, 'Click on the corners', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 1)
         cv2.imshow("image", image)
         if len(refPt) == 4:
-            cv2.putText(image, 'Press "P" to process', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2)
+            cv2.putText(image, 'Press "P" to process in the next steps', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 1)
             cv2.imshow("image", image)
 
 def order_points(pts):
@@ -117,7 +118,7 @@ for region in regions:
     roi_color = cv2.cvtColor(roi, cv2.COLOR_GRAY2RGB)
     predicted_text = predict_with_easyocr(roi_color)
     predicted_characters.append(predicted_text)
-    cv2.rectangle(warped, (x, y), (x+w, y+h), (0, 255, 0), 0.7)
+    cv2.rectangle(warped, (x, y), (x+w, y+h), (0, 255, 0), 1)
 
     if predicted_text and count < 49:
         axs[count].imshow(roi_color, cmap='gray')
