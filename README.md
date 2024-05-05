@@ -12,8 +12,10 @@ Prerequisites:
 
 ### Installation:
 1. Clone the repository:
+```
    git clone https://github.com/ADA-GWU/a5-object-detection-aliasgerovs.git
    cd a5-object-detection-aliasgerovs
+```
 
 2. Install the required Python packages:
    pip3 install -r requirements.txt
