@@ -18,7 +18,9 @@ Prerequisites:
 ```
 
 2. Install the required Python packages:
+```
    pip3 install -r requirements.txt
+```
 
 ### Running the Code
 
