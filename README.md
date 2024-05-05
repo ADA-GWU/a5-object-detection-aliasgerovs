@@ -26,13 +26,14 @@ Prerequisites:
 
 To run the text recognition:
 
-1. Place your skewed image in the project directory or update the image path in the script.
-2. Execute the script from the command line:
+Execute the script from the command line
 
 ```
    python3 recognition.py
 
 ```
+
+
 3. Follow the on-screen instructions to select the corners of the document in the displayed window.
 4. Press "p" to process the image after selecting the corners.
 
