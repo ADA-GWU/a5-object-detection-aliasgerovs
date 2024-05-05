@@ -77,7 +77,7 @@ def four_point_transform(image, pts):
     return warped
 
 # Load and process image
-image = cv2.imread('receipt.jpeg')
+image = cv2.imread('images/receipt.jpeg')
 cv2.namedWindow("image")
 cv2.setMouseCallback("image", click_and_select_corners)
 
