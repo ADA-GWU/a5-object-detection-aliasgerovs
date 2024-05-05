@@ -49,7 +49,7 @@ def click_and_select_corners(event, x, y, flags, param):
         cv2.circle(image, refPt[-1], 5, (0, 255, 0), -1)
         cv2.imshow("image", image)
         if len(refPt) == 4:
-            cv2.putText(image, 'Press "p" to process', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+            cv2.putText(image, 'Press "P" to process', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2)
             cv2.imshow("image", image)
 
 def order_points(pts):
@@ -94,11 +94,11 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 
 # OCR setup
-mser = cv2.MSER_create(delta=2, min_area=10, max_area=500)
+mser = cv2.MSER_create()
 gray = cv2.cvtColor(warped, cv2.COLOR_BGR2GRAY)
 regions, _ = mser.detectRegions(gray)
 predicted_characters = []
-reader = easyocr.Reader(['en'], gpu=True)
+reader = easyocr.Reader(['az'], gpu=True)
 
 def predict_with_easyocr(image):
     results = reader.readtext(image)
@@ -117,7 +117,7 @@ for region in regions:
     roi_color = cv2.cvtColor(roi, cv2.COLOR_GRAY2RGB)
     predicted_text = predict_with_easyocr(roi_color)
     predicted_characters.append(predicted_text)
-    cv2.rectangle(warped, (x, y), (x+w, y+h), (0, 255, 0), 2)
+    cv2.rectangle(warped, (x, y), (x+w, y+h), (0, 255, 0), 0.7)
 
     if predicted_text and count < 49:
         axs[count].imshow(roi_color, cmap='gray')
